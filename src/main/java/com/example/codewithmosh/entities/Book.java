@@ -13,6 +13,10 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Positive;
 import lombok.*;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+
+import java.time.Instant;
 
 
 @AllArgsConstructor
@@ -24,11 +28,12 @@ import lombok.*;
 @Table(name = "book")
 public class Book {
 
-    public Book(String isbn, String title, String author, Double price) {
+    public Book(String isbn, String title, String author, Double price, String publisher) {
         this.isbn = isbn;
         this.title = title;
         this.author = author;
         this.price = price;
+        this.publisher = publisher;
     }
 
     @Id
@@ -55,5 +60,16 @@ public class Book {
             message = "The book price must be greater than zero"
     )
     private Double price;
+
+    String publisher;
+
+    @CreatedDate
+    Instant createdDate;
+
+    @LastModifiedDate
+    Instant lastModifiedDate;
+
+    @Version
+    int version;
 
 }
