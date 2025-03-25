@@ -14,5 +14,8 @@ spring:
     url: jdbc:postgresql://localhost:5432/store?createDatabaseIfNotExist=true
     username: postgres
     password: postgres
+    hikari:
+      connection-timeout: 2000
+      maximum-pool-size: 5
   jpa:
     show-sql: true
