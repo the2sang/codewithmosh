@@ -2,7 +2,7 @@ app:
   datasource:
     main:
       driver-class-name: org.postgresql.Driver
-      jdbc-url: jdbc:postgresql://localhost:5432/polardb_catalog
+      jdbc-url: jdbc:postgresql://polar-postgres:5432/polardb_catalog
       username: postgres
       password: postgres
       pool-size: 10
@@ -11,7 +11,7 @@ spring:
   application:
     name: store
   datasource:
-    url: jdbc:postgresql://localhost:5432/polardb_catalog?createDatabaseIfNotExist=true
+    url: jdbc:postgresql://polar-postgres:5432/polardb_catalog?createDatabaseIfNotExist=true
     username: postgres
     password: postgres
     hikari:

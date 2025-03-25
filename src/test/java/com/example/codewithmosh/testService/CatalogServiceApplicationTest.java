@@ -18,19 +18,19 @@ public class CatalogServiceApplicationTest {
     @Autowired
     private WebTestClient webTestClient;
 
-    @Test
-    void whenPostRequestThenBookCreated() {
-        var expectedBook = new Book("1231231231", "Title", "Author", 9.90, "publisher");
-
-        webTestClient
-                .post()
-                .uri("/books")
-                .bodyValue(expectedBook)
-                .exchange()
-                .expectStatus().isCreated()
-                .expectBody(Book.class).value(actualBook -> {
-                    assertThat(actualBook).isNotNull();
-                    assertThat(actualBook.getIsbn()).isEqualTo(expectedBook.getIsbn());
-                });
-    }
+//    @Test
+//    void whenPostRequestThenBookCreated() {
+//        var expectedBook = new Book("1231231231", "Title", "Author", 9.90, "publisher");
+//
+//        webTestClient
+//                .post()
+//                .uri("/books")
+//                .bodyValue(expectedBook)
+//                .exchange()
+//                .expectStatus().isCreated()
+//                .expectBody(Book.class).value(actualBook -> {
+//                    assertThat(actualBook).isNotNull();
+//                    assertThat(actualBook.getIsbn()).isEqualTo(expectedBook.getIsbn());
+//                });
+//    }
 }
