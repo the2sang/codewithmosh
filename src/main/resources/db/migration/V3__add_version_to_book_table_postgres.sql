@@ -1,0 +1,1 @@
+alter table book add column version integer not null;

@@ -1,0 +1,21 @@
+app:
+  datasource:
+    main:
+      driver-class-name: org.postgresql.Driver
+      jdbc-url: jdbc:postgresql://localhost:5432/store
+      username: postgres
+      password: postgres
+      pool-size: 10
+
+spring:
+  application:
+    name: store
+  datasource:
+    url: jdbc:postgresql://localhost:5432/store?createDatabaseIfNotExist=true
+    username: postgres
+    password: postgres
+    hikari:
+      connection-timeout: 2000
+      maximum-pool-size: 5
+  jpa:
+    show-sql: true
