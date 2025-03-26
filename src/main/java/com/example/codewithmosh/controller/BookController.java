@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.Instant;
+
 @RestController
 @RequestMapping(value = "/api/v1/books")
 public class BookController {
@@ -38,6 +40,15 @@ public class BookController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Book post(@Valid @RequestBody Book book) {
+
+        if (book.getCreatedDate() == null) {
+            book.setCreatedDate(Instant.now());
+        }
+
+        if (book.getLastModifiedDate() == null) {
+            book.setLastModifiedDate(Instant.now());
+        }
+
         return bookService.addBookToCatalog(book);
     }
 
